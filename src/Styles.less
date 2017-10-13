@@ -1,0 +1,68 @@
+// Font-family specifics
+@Poppins-FF: "Poppins";
+
+// Font-weight specifics
+@SemiBold-FW: 600;
+@Medium-FW: 500;
+
+// Font-size specifics
+@FS-1: 60px;
+@FS-2: 30px;
+@FS-3: 18px;
+@FS-4: 12px;
+
+// Line-height specifics
+@LH-1: 68px;
+@LH-2: 44px;
+@LH-3: 35px;
+@LH-4: normal;
+
+// Color specifics
+ @CroutonWhite: #FFFFFF;
+ @CroutonGrey: #645F5F;
+ @CroutonOrange: #FFAA81;
+ @CroutonOff: #E5E9E1;
+
+ // Letter-spacing specifics
+ @LS-1: 0.1em;
+
+.fontStyle(@fontSize, @fontWeight, @lineHeight: @LH-4) {
+    font-family: @Poppins-FF;
+    font-size: @fontSize;
+    font-weight: @fontWeight;
+    line-height: @lineHeight;
+}
+
+h1 {
+    .fontStyle(@FS-1, @SemiBold-FW, @LH-1);
+}
+
+h2 {
+    .fontStyle(@FS-2, @SemiBold-FW, @LH-2);
+}
+
+h3 {
+    .fontStyle(@FS-3, @Medium-FW);
+}
+
+p {
+    .fontStyle(@FS-3, @Medium-FW, @LH-3);
+}
+
+form {
+    .fontStyle(@FS-3, @Medium-FW);
+}
+
+.nav-item {
+    .fontStyle(@FS-3, @SemiBold-FW);
+    display: inline;
+}
+
+.cta-button {
+    .fontStyle(@FS-3, @SemiBold-FW);
+    letter-spacing: @LS-1;
+}
+
+.fine-print {
+    .fontStyle(@FS-4, @Medium-FW);
+}
