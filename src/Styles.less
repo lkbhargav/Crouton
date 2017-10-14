@@ -18,51 +18,198 @@
 @LH-4: normal;
 
 // Color specifics
- @CroutonWhite: #FFFFFF;
- @CroutonGrey: #645F5F;
- @CroutonOrange: #FFAA81;
- @CroutonOff: #E5E9E1;
+@CroutonWhite: #FFFFFF;
+@CroutonGrey: #645F5F;
+@CroutonOrange: #FFAA81;
+@CroutonOff: #E5E9E1;
 
  // Letter-spacing specifics
- @LS-1: 0.1em;
+@LS-1: 0.1em;
 
-.fontStyle(@fontSize, @fontWeight, @lineHeight: @LH-4) {
+.fontStyle(@fontSize, @fontWeight, @fontColor, @lineHeight: @LH-4) {
     font-family: @Poppins-FF;
     font-size: @fontSize;
     font-weight: @fontWeight;
     line-height: @lineHeight;
+    color: @fontColor;
 }
 
 h1 {
-    .fontStyle(@FS-1, @SemiBold-FW, @LH-1);
+    margin-top: 0px;
+    margin-bottom: 5px;
+    &.first-headline {
+          .fontStyle(@FS-1, @SemiBold-FW, @CroutonWhite, @LH-1);
+    }
+    &.next-headline {
+          .fontStyle(@FS-1, @SemiBold-FW, @CroutonGrey, @LH-1);
+    }
 }
 
 h2 {
-    .fontStyle(@FS-2, @SemiBold-FW, @LH-2);
+  &.first-headline {
+        .fontStyle(@FS-2, @SemiBold-FW, @CroutonWhite, @LH-2);
+  }
+  &.next-headline {
+        .fontStyle(@FS-2, @SemiBold-FW, @CroutonGrey, @LH-2);
+  }
 }
 
 h3 {
-    .fontStyle(@FS-3, @Medium-FW);
+    .fontStyle(@FS-3, @Medium-FW, @CroutonGrey);
 }
 
 p {
-    .fontStyle(@FS-3, @Medium-FW, @LH-3);
+    .fontStyle(@FS-3, @Medium-FW, @CroutonGrey, @LH-3);
 }
 
 form {
-    .fontStyle(@FS-3, @Medium-FW);
+    input {
+        border: none;
+        border-bottom: 2px solid @CroutonOff;
+        background-color: @CroutonGrey;
+        .fontStyle(@FS-3, @Medium-FW, @CroutonWhite);
+        padding: 10px 5px;
+        margin: 10px 0px 20px 0px;
+        outline: none;
+        width: 90%;
+        border-top-right-radius: 7px;
+        border-top-left-radius: 7px;
+        &:focus {
+            border-bottom: 3px solid @CroutonOrange;
+            background-color: @CroutonGrey*.9;
+        }
+    }
+    input:nth-child(3) {
+      margin-bottom: 40px;
+    }
+}
+
+footer {
+    background-color: @CroutonGrey;
+    padding: 40px 0px;
+    img, label {
+      padding: 7px 10px;
+      display: block;
+      margin: auto;
+      text-align: center;
+    }
+
+}
+
+.common-button-props {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.disable-hyperlink-styles {
+      text-decoration: none;
+      color: @CroutonGrey;
+}
+
+.header-one {
+    background-color: @CroutonOrange;
+    position: relative;
+}
+
+.navbar-container {
+    padding: 10px;
+    background-color: @CroutonOrange;
+    right: 0;
+    left: 0;
+    margin: 0px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    li {
+      display: inline;
+      list-style-type: none;
+    }
 }
 
 .nav-item {
-    .fontStyle(@FS-3, @SemiBold-FW);
-    display: inline;
+    .fontStyle(@FS-3, @SemiBold-FW, @CroutonGrey);
+    padding-left: 10px;
+    span {
+      color: @CroutonWhite;
+    }
+}
+
+.navbar-title-image {
+    width: 100px;
+    height: 20px;
+    vertical-align: baseline;
+}
+
+.header-one-content {
+    padding-top: 75px;
+    margin-left: 18px;
+    text-align: left;
+    padding-bottom: 200px;
+}
+
+.header-two-content {
+    .header-one-content;
+    padding-bottom: 75px;
+}
+
+.header-h1-position {
+    margin: 22px 0px 22px 0px;
 }
 
 .cta-button {
-    .fontStyle(@FS-3, @SemiBold-FW);
+    .fontStyle(@FS-3, @SemiBold-FW, @CroutonGrey);
     letter-spacing: @LS-1;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.right-arrow-image {
+    width: 55px;
+    height: 35px;
+    vertical-align: middle;
 }
 
 .fine-print {
-    .fontStyle(@FS-4, @Medium-FW);
+    .fontStyle(@FS-4, @Medium-FW, @CroutonOff);
+}
+
+.header-two {
+    background-color: @CroutonOff;
+}
+
+.header-three {
+      background-color: @CroutonGrey;
+}
+
+.main-image-container {
+    position: absolute;
+    background-color: @CroutonOff;
+    width: 256px;
+    left: 50%;
+    margin-left: -120px;
+}
+
+.main-image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 200px;
+    margin-top: -150px;
+}
+
+.orange-header {
+    color: @CroutonOrange !important;
+}
+
+.cta-button-contact {
+      .cta-button;
+      color: @CroutonOrange;
+      text-align: left;
+}
+
+.header-three-content {
+    .header-one-content;
+    padding-bottom: 0px;
 }
