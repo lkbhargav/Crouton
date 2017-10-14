@@ -8,6 +8,7 @@
 
 # production
 /build
+/bgbrands
 
 # misc
 .DS_Store
