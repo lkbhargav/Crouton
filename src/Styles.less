@@ -67,6 +67,14 @@
     margin-right: auto;
     display: block;
 }
+
+.common-animation-transition(@property, @time, @effect: ease) {
+      -webkit-transition: @property @time @effect;
+      -moz-transition: @property @time @effect;
+      -o-transition: @property @time @effect;
+      -ms-transition: @property @time @effect;
+      transition: @property @time @effect;
+}
 // -----------------------------------------------End (Mixins for commonly used CSS code)-----------------------------------------------
 
 
@@ -103,12 +111,32 @@ form {
         border-top-right-radius: 7px;
         border-top-left-radius: 7px;
         &:focus {
-            border-bottom: 1px solid @CroutonOrange;
+            border-bottom: 1px solid @CroutonOrange*1.25;
             background-color: @CroutonGrey*.9;
         }
     }
     input:nth-child(3) {
       margin-bottom: 40px;
+    }
+    span {
+        display: block;
+        padding-top: 20px;
+        padding-left: 0%;
+        .fontStyle(@FS-3, @Medium-FW, @CroutonWhite);
+    }
+    div#waitAnim {
+        width: 20px;
+        height: 20px;
+        animation: waitAnimation 5s infinite;
+        border-radius: 50%;
+        display: none;
+    }
+    @keyframes waitAnimation {
+        0%   {background-color:@CroutonWhite;}
+        25%  {background-color:@CroutonGrey;}
+        50%  {background-color:@CroutonOrange;}
+        75%  {background-color:@CroutonGrey;}
+        100% {background-color:@CroutonOff;}
     }
 }
 
@@ -243,6 +271,12 @@ footer {
 :-moz-placeholder {
   color: @CroutonWhite;
 }
+
+// Border color change for valid input
+[type="text"]:valid:focus, [type="text"]:valid, [type="email"]:valid:focus, [type="email"]:valid {
+    border-color: @CroutonOrange;
+}
+
 // -----------------------------------------------End (Base styles for Mobile devices)-----------------------------------------------
 
 
@@ -306,6 +340,16 @@ footer {
       button {
         display: block;
       }
+
+      span {
+          padding-left: 30%;
+      }
+
+      div#waitAnim {
+          width: 40px;
+          height: 40px;
+      }
+
   }
 }
 @media only screen
@@ -459,6 +503,13 @@ footer {
         padding-top: 25px;
         padding-bottom: 25px;
         padding-left: 12%;
+
+    }
+
+    .nav-item a:hover {
+        padding-bottom: 3px;
+        border-bottom: 2px solid @CroutonGrey;
+        .common-animation-transition(border-color, 2s, linear);
     }
 
     .header-one-content, .header-two-content, .header-three-content {
@@ -519,6 +570,20 @@ footer {
             width: 400px;
             padding-left: 9%;
         }
+      }
+
+    Button:hover, Button:focus {
+          text-decoration: underline;
+          text-decoration-color: @CroutonOff;
+          text-decoration-style: double;
+          img {
+              animation: rotateImage 2s infinite;
+          }
+      }
+
+    @keyframes rotateImage {
+          from {transform: rotate(0deg);}
+          to {transform: rotate(359deg);}
       }
 }
 @media only screen

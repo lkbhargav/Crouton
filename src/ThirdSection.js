@@ -1,9 +1,37 @@
 import React from 'react';
+import $ from 'jquery';
 import OrangeRightArrow from './Images/rightArrowOrange.png';
 import CroutonGrey from './Images/img_logo-crouton-grey.png';
 import './Styles.css';
 
-function HandleOnSubmit() {
+function HandleOnSubmit(e) {
+  // Starts wait animation
+  $("#waitAnim").css({"display": "block", "margin":"auto"});
+
+  // Makes a POST request to server with the form data
+  $.post("http://71.232.9.45:1299/contactus",
+        {
+          name: $("#name").val(),
+          message: $("#message").val(),
+          email: $("#email").val()
+        },
+        function(data,status){
+            // On successful POST call
+            if(data.results.status == "200") {
+                $("#gratitude").text("Thank you for contacting!");
+                $("#waitAnim").css("display", "none");
+                // Clears the gratitude message after 7s
+                setTimeout(function() {
+                    $("#gratitude").text("");
+                }, 7000);
+
+                // Resets all the fields
+                $("#name").val("").css("background-color", "#645F5F !important");
+                $("#message").val("").css("background-color", "#645F5F !important");
+                $("#email").val("").css("background-color", "#645F5F !important");
+            }
+        });
+      e.preventDefault();
       return false;
 }
 
@@ -16,13 +44,14 @@ function GetInTouchButton() {
 function ContactUsForm() {
     return(
       <div className="contact-us-container">
-          <form onSubmit={HandleOnSubmit}>
+          <form onSubmit={HandleOnSubmit} autoComplete="off">
               <div>
-                  <input type="text" minLength="1" maxLength="20" placeholder="your name" required/>
-                  <input type="email" minLength="3" maxLength="40" placeholder="your email" required/>
+                  <input type="text" minLength="1" maxLength="20" id="name" placeholder="your name" required/>
+                  <input type="email" minLength="3" maxLength="40" id="email" placeholder="your email" required/>
               </div>
-              <input type="text" minLength="3" className="message-input-field" maxLength="300" placeholder="your message" required/>
+              <input type="text" minLength="3" className="message-input-field" id="message" maxLength="300" placeholder="your message" required/>
               <GetInTouchButton />
+              <span id="gratitude">  </span> <div id="waitAnim"> </div>
           </form>
       </div>
     );
