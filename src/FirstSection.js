@@ -8,8 +8,8 @@ function NavHeader() {
     return (
       <ul className="navbar-container">
           <li> <img className="navbar-title-image" src={CroutonFull} alt="Crouton full logo" /> </li>
-          <li className="nav-item"> <a href="#" className="disable-hyperlink-styles"><span> / </span> About </a> </li>
-          <li className="nav-item"> <a href="#" className="disable-hyperlink-styles"><span> / </span> Our Team </a> </li>
+          <li className="nav-item"> <a href="#"><span> / </span> About </a> </li>
+          <li className="nav-item"> <a href="#"><span> / </span> Our Team </a> </li>
        </ul>
     );
 }
@@ -17,8 +17,10 @@ function NavHeader() {
 function MainHeading() {
     return (
       <div className="header-h1-position">
-          <h1 className="first-headline"> Crouton - </h1>
-          <h1 className="next-headline"> Where learning never stops.  </h1>
+            <h1>
+                <span className="first-headline"> Crouton - </span>
+                <span className="next-headline"> Where learning never stops. </span>
+            </h1>
       </div>
     );
 }

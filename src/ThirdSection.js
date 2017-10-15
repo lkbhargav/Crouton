@@ -18,10 +18,10 @@ function ContactUsForm() {
       <div className="contact-us-container">
           <form onSubmit={HandleOnSubmit}>
               <div>
-                  <input type="text" minLength="5" maxLength="18" placeholder="your name" required/>
-                  <input type="email" minLength="5" maxLength="35" placeholder="your email" required/>
+                  <input type="text" minLength="1" maxLength="20" placeholder="your name" required/>
+                  <input type="email" minLength="3" maxLength="40" placeholder="your email" required/>
               </div>
-              <input type="text" minLength="5" className="message-input-field" maxLength="200" placeholder="your message" required/>
+              <input type="text" minLength="3" className="message-input-field" maxLength="300" placeholder="your message" required/>
               <GetInTouchButton />
           </form>
       </div>
@@ -31,8 +31,10 @@ function ContactUsForm() {
 function MainHeading() {
     return(
       <div className="header-h1-position">
-        <h1 className="first-headline"> Contact Us - </h1>
-        <h1 className="next-headline orange-header"> We love to work.  </h1>
+          <h1>
+              <span className="first-headline"> Contact Us - </span>
+              <span className="next-headline orange-header"> We love to work. </span>
+          </h1>
       </div>
     );
 }

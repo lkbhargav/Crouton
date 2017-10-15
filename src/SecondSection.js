@@ -37,8 +37,10 @@ function ParagraphContent() {
 function MainHeading() {
     return(
       <div className="header-h1-position">
-        <h1 className="first-headline"> Who we are - </h1>
-        <h1 className="next-headline"> Creativity to the core.  </h1>
+          <h1>
+              <span className="first-headline"> Who we are - </span>
+              <span className="next-headline"> Creativity to the core. </span>
+          </h1>
       </div>
     );
 }
