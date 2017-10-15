@@ -166,6 +166,7 @@ footer {
     border: none;
     background: none;
     outline: none;
+    cursor: pointer;
 }
 
 .right-arrow-image {
@@ -215,6 +216,20 @@ footer {
 .header-three-content {
     .header-one-content;
     padding-bottom: 0px;
+}
+
+// Placeholder color for different browser support
+::-webkit-input-placeholder {
+  color: @CroutonWhite;
+}
+::-moz-placeholder {
+  color: @CroutonWhite;
+}
+:-ms-input-placeholder {
+  color: @CroutonWhite;
+}
+:-moz-placeholder {
+  color: @CroutonWhite;
 }
 
 // Small screen tablet portrait styles.
@@ -278,6 +293,12 @@ footer {
       }
   }
 }
+@media only screen
+  and (min-width: 768px)
+  and (max-width: 1024px)
+  and (orientation: portrait)  {
+    .sm-tablet-portrait;
+}
 
 // Small screen tablet landscape styles.
 .sm-tablet-landscape {
@@ -308,6 +329,12 @@ footer {
   }
 
 }
+@media only screen
+  and (min-width: 768px)
+  and (max-width: 1024px)
+  and (orientation: landscape)  {
+    .sm-tablet-landscape;
+}
 
 // Large screen tablet portrait styles.
 .lg-tablet-portrait {
@@ -331,6 +358,12 @@ footer {
       height: 500px;
       margin-top: -380px;
   }
+}
+@media only screen
+  and (min-width: 1025px)
+  and (max-width: 1366px)
+  and (orientation: portrait) {
+    .lg-tablet-portrait;
 }
 
 // Large screen tablet landscape styles.
@@ -396,7 +429,14 @@ footer {
         }
       }
 }
+@media only screen
+  and (min-width: 1025px)
+  and (max-width: 1366px)
+  and (orientation: landscape)  {
+      .lg-tablet-landscape;
+  }
 
+// Desktop styles.
 .desktop-styles {
     .lg-tablet-landscape;
 
@@ -466,50 +506,7 @@ footer {
         }
       }
 }
-
-@media only screen
-  and (min-width: 768px)
-  and (max-width: 1024px)
-  and (orientation: portrait)  {
-    .sm-tablet-portrait;
-}
-
-@media only screen
-  and (min-width: 768px)
-  and (max-width: 1024px)
-  and (orientation: landscape)  {
-    .sm-tablet-landscape;
-}
-
-@media only screen
-  and (min-width: 1025px)
-  and (max-width: 1366px)
-  and (orientation: portrait) {
-    .lg-tablet-portrait;
-}
-
-@media only screen
-  and (min-width: 1025px)
-  and (max-width: 1366px)
-  and (orientation: landscape)  {
-      .lg-tablet-landscape;
-  }
-
 @media only screen
     and (min-width: 1367px) {
         .desktop-styles;
     }
-
-
-::-webkit-input-placeholder {
-  color: @CroutonWhite;
-}
-::-moz-placeholder {
-  color: @CroutonWhite;
-}
-:-ms-input-placeholder {
-  color: @CroutonWhite;
-}
-:-moz-placeholder {
-  color: @CroutonWhite;
-}
