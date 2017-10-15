@@ -57,12 +57,22 @@ function HeaderTwoContent() {
         </div>
         <p> Ut neque nisl, venenatis et iaculis a, posuere euismod sem. Vivamus cursus dui mi, et sagittis tellus condimentum id. Sed dapibus volutpat orci ac gravida. Mauris varius justo at phareta imperdiet. Nulla purus velit, mollis ac fringilla vitae, volutpat vitae enim. </p>
         <div className="header-h2-position">
-          <h2 className="first-headline"> Core Value 1 - </h2>
-          <h2 className="next-headline"> Etiam viverra consequat nibh quis elementum.  </h2>
-          <h2 className="first-headline"> Core Value 2 - </h2>
-          <h2 className="next-headline"> Mollis ac fringilla vitae, volutpat vitae enim.  </h2>
-          <h2 className="first-headline"> Core Value 3 - </h2>
-          <h2 className="next-headline"> Donec nec convallis nulla. Cras tortor libero. </h2>
+
+          <div>
+              <h2> <span className="first-headline"> Core Value 1 - </span>
+              <span className="next-headline"> Etiam viverra consequat nibh quis elementum. </span> </h2>
+          </div>
+          <br />
+          <div>
+              <h2> <span className="first-headline"> Core Value 2 - </span>
+              <span className="next-headline"> Mollis ac fringilla vitae, volutpat vitae enim. </span>  </h2>
+          </div>
+          <br />
+          <div>
+              <h2> <span className="first-headline"> Core Value 3 - </span>
+              <span className="next-headline"> Donec nec convallis nulla. Cras tortor libero. </span> </h2>
+          </div>
+
         </div>
       </div>
     );
@@ -85,11 +95,11 @@ function HeaderThreeContent() {
         </div>
         <div className="contact-us-container">
           <form onSubmit={HandleOnSubmit}>
-          <div>
-              <input type="text" minLength="5" maxLength="18" placeholder="your name" required/>
-              <input type="email" minLength="5" maxLength="35" placeholder="your email" required/>
-          </div>
-              <input type="text" minLength="5" maxLength="200" placeholder="your message" required/>
+            <div>
+                <input type="text" minLength="5" maxLength="18" placeholder="your name" required/>
+                <input type="email" minLength="5" maxLength="35" placeholder="your email" required/>
+            </div>
+              <input type="text" minLength="5" className="message-input-field" maxLength="200" placeholder="your message" required/>
               <button className="cta-button-contact"> GET IN TOUCH <img src={require('./Images/rightArrowOrange.png')} className="right-arrow-image" alt="" /> </button>
           </form>
         </div>

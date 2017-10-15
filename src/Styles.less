@@ -46,10 +46,13 @@ h1 {
 }
 
 h2 {
-  &.first-headline {
+  span:nth-child(1) {
+      display: block;
+  }
+  span.first-headline {
         .fontStyle(@FS-2, @SemiBold-FW, @CroutonWhite, @LH-2);
   }
-  &.next-headline {
+  span.next-headline {
         .fontStyle(@FS-2, @SemiBold-FW, @CroutonGrey, @LH-2);
   }
 }
@@ -65,17 +68,17 @@ p {
 form {
     input {
         border: none;
-        border-bottom: 2px solid @CroutonOff;
+        border-bottom: 1px solid @CroutonOff;
         background-color: @CroutonGrey;
         .fontStyle(@FS-3, @Medium-FW, @CroutonWhite);
-        padding: 10px 5px;
+        padding: 10px 0px;
         margin: 10px 0px 20px 0px;
         outline: none;
         width: 90%;
         border-top-right-radius: 7px;
         border-top-left-radius: 7px;
         &:focus {
-            border-bottom: 3px solid @CroutonOrange;
+            border-bottom: 1px solid @CroutonOrange;
             background-color: @CroutonGrey*.9;
         }
     }
@@ -150,6 +153,7 @@ footer {
 .header-two-content {
     .header-one-content;
     padding-bottom: 75px;
+    padding-top: 175px;
 }
 
 .header-h1-position {
@@ -186,7 +190,7 @@ footer {
     position: absolute;
     background-color: @CroutonOff;
     width: 256px;
-    left: 50%;
+    left: 45%;
     margin-left: -120px;
 }
 
@@ -194,7 +198,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    height: 200px;
+    height: 275px;
     margin-top: -150px;
 }
 
@@ -223,11 +227,6 @@ footer {
       padding-left: 40px;
     }
 
-    .navbar-title-image {
-        width: 140px;
-        height: 28px;
-      }
-
   .header-one-content, .header-three-content, .header-two-content {
       padding-left: 50px;
       padding-right: 50px;
@@ -238,19 +237,18 @@ footer {
   }
 
   .header-one-content {
-    padding-top: 150px;
+      padding-top: 150px;
       padding-bottom: 400px;
   }
 
   .main-image-container {
-      left: 34%;
-      width: 50%;
+      left: 40%;
   }
 
   .main-image {
-      height: 450px;
-      margin-top: -340px;
-      width: 500px;
+      height: 400px;
+      margin-top: -300px;
+      width: 400px;
   }
 
   footer {
@@ -306,8 +304,7 @@ footer {
   }
 
   .main-image-container {
-      left: 57%;
-      width: 200px;
+      left: 60%;
   }
 
 }
@@ -316,8 +313,23 @@ footer {
 .lg-tablet-portrait {
   .sm-tablet-portrait;
 
+  .header-one-content {
+      padding-top: 180px;
+      padding-bottom: 450px;
+  }
+
+  .header-two-content {
+      padding-top: 180px;
+  }
+
+  .main-image-container {
+      left: 36%;
+  }
+
   .main-image {
-      width: 550px;
+      width: 500px;
+      height: 500px;
+      margin-top: -380px;
   }
 }
 
@@ -326,9 +338,9 @@ footer {
     .sm-tablet-landscape;
 
     .main-image {
-        width: 600px;
-        height: 600px;
-        margin-top: -450px;
+        width: 500px;
+        height: 500px;
+        margin-top: -400px;
     }
 
     .header-two-content {
@@ -336,8 +348,9 @@ footer {
 
         div.header-h1-position {
             position: absolute;
-            right: 10px;
-            bottom: 80px;
+            right: 9%;
+            width: 40%;
+            top: 480px;
         }
 
         div.header-h2-position {
@@ -347,8 +360,8 @@ footer {
         p {
             position: absolute;
             top: 225px;
-            right: 120px;
-            width: 500px;
+            right: 9%;
+            width: 40%;
         }
     }
 
@@ -361,18 +374,19 @@ footer {
         div.contact-us-container {
             position: absolute;
             display: inline-block;
-            right: 150px;
+            right: 125px;
             top: 100px;
+            width: 40%;
             form {
                display: inline;
                 input:nth-child(1), input:nth-child(2) {
                     display: inline;
-                    width: 250px;
+                    width: 100%;
                     margin-left: 20px;
                 }
-                input:nth-child(3) {
+                input.message-input-field {
                   margin-left: 20px;
-                  width: 520px;
+                  width: 100%;
                 }
             }
           }
@@ -383,34 +397,119 @@ footer {
       }
 }
 
+.desktop-styles {
+    .lg-tablet-landscape;
+
+    .navbar-container {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 12%;
+    }
+
+    .header-one-content, .header-two-content, .header-three-content {
+        padding-left: 11%;
+    }
+
+    .header-one-content {
+        padding-top: 350px;
+    }
+
+    .main-image {
+        width: 600px;
+        height: 600px;
+        margin-top: -185%;
+    }
+
+    .header-two-content {
+        padding-top: 250px;
+
+        div.header-h1-position {
+            right: 9%;
+            width: 40%;
+            top: 510px;
+        }
+
+        p {
+            top: 320px;
+            right: 9%;
+            width: 40%;
+        }
+    }
+
+    .header-three-content {
+        div.contact-us-container {
+            left: 49%;
+          }
+
+          div.contact-us-container {
+              right: 150px;
+              top: 33%;
+              form {
+                  input:nth-child(1), input:nth-child(2) {
+                      width: 250px;
+                  }
+                  input.message-input-field {
+                    width: 520px;
+                  }
+              }
+            }
+
+      }
+
+      footer {
+        padding-top: 5px;
+        padding-bottom: 60px;
+        div {
+            margin: none;
+            width: 400px;
+            padding-left: 9%;
+        }
+      }
+}
+
 @media only screen
   and (min-width: 768px)
   and (max-width: 1024px)
-  and (orientation: portrait)
-  and (-webkit-min-device-pixel-ratio: 1)  {
+  and (orientation: portrait)  {
     .sm-tablet-portrait;
 }
 
 @media only screen
   and (min-width: 768px)
   and (max-width: 1024px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 1)  {
+  and (orientation: landscape)  {
     .sm-tablet-landscape;
 }
 
 @media only screen
-  and (min-width: 1024px)
+  and (min-width: 1025px)
   and (max-width: 1366px)
-  and (orientation: portrait)
-  and (-webkit-min-device-pixel-ratio: 1)  {
+  and (orientation: portrait) {
     .lg-tablet-portrait;
 }
 
 @media only screen
   and (min-width: 1025px)
   and (max-width: 1366px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 2)  {
+  and (orientation: landscape)  {
       .lg-tablet-landscape;
   }
+
+@media only screen
+    and (min-width: 1367px) {
+        .desktop-styles;
+    }
+
+
+::-webkit-input-placeholder {
+  color: @CroutonWhite;
+}
+::-moz-placeholder {
+  color: @CroutonWhite;
+}
+:-ms-input-placeholder {
+  color: @CroutonWhite;
+}
+:-moz-placeholder {
+  color: @CroutonWhite;
+}
